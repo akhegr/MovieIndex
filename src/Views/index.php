@@ -1,9 +1,8 @@
 <h1>Genre overview</h1>
 <div class="container">
-<div class="row">
-    <?php for ($i = 0; $i < 5; $i++) : ?>
+
+    <?php foreach($genres as $genre) : ?>
         <div class="col-4">
-            <?= $genre = $genres[$i]; ?>
             <p><h3><?= $genre->name ?></h3>
             <b>Click <a href="/genre?genreId=<?= $genre->id ?>">here</a> to enter genre
             <br><b>Total amount of movies:</b> <?= $genre->movies->totalResults ?> movies</p>
@@ -17,7 +16,8 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($genre->movies->results as $movie) : ?>
+                        $limitedMovieList = array_slice($genre->movies->results, 0, 5);
+                        foreach ($limitedMovieList as $movie) : ?>
                             <tr>
                                 <td><img src="https://image.tmdb.org/t/p/w92/<?= $movie->poster_path ?>" width/></td>
                                 <td><?= $movie->original_title ?></td>
@@ -27,6 +27,5 @@
                 </tbody>
             </table>
         </div>
-    <?php endfor; ?>
-</div>
+    <?php endforeach; ?>
 </div>
