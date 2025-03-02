@@ -1,0 +1,15 @@
+{
+    "name": "akhegr/movieindex",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aksel Gregersen",
+            "email": "mail@akselhg.dk"
+        }
+    ],
+    "require": {}
+}
