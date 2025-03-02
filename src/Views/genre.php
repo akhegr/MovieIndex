@@ -14,7 +14,7 @@
             <tr>
                 <td><img src="https://image.tmdb.org/t/p/w92/<?= $movie->poster_path ?>" width/></td>
                 <td><?= $movie->original_title ?></td>
-                <td><a href="/description?movieId=<?= $movie->id ?>">Enter</a></td>
+                <td><a href="/description?movieId=<?= $movie->id ?>" class="btn btn-secondary">Description</a></td>
             </tr>
     <?php endforeach; ?>
   </tbody>
