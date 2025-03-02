@@ -102,7 +102,7 @@ class MovieService
 
     public function getGenreById($genreId)
     {
-        $url = $this->apiUrl . 'discover/movie?with_genres=28';
+        $url = $this->apiUrl . 'discover/movie?with_genres=' . $genreId;
 
         $json = $this->fetchData($url);
         $data = json_decode($json, true);
