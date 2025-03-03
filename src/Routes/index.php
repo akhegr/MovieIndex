@@ -6,6 +6,9 @@
         <title>MovieIndex</title>
         <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/css/site.css" />
+
+        <!-- Free icon by Phoenix Dungeon on IconScout -->
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     </head>
     <body>
         <header>
