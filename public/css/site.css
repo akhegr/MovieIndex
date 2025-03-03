@@ -12,11 +12,34 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+header, footer { 
+  height: 50px;
+}
+ 
 html {
   position: relative;
   min-height: 100%;
+  overflow: hidden;
 }
 
 body {
   margin-bottom: 60px;
+}
+
+.bodyContent {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-grow: 1;
+}
+
+.container {
+  padding-top: 10px;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
 }

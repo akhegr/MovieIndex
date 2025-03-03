@@ -39,4 +39,18 @@
             </div>
         </div>
     </div>
+
+
+    <script> 
+        document.addEventListener("DOMContentLoaded", function () {
+            //document.body.style.backgroundImage = "url('https://image.tmdb.org/t/p/original/<?= $movie->backdrop_path ?>')";
+
+            const div = document.querySelector('.bodyContent');
+    
+            if (div) {
+                // If the div exists, set the background image
+                div.style.backgroundImage = "url('https://image.tmdb.org/t/p/w780/<?= $movie->backdrop_path ?>')";
+            }
+        });
+    </script>
 <?php endif; ?>
