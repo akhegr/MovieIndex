@@ -29,7 +29,12 @@ class MovieService
 
             $json = $this->fetchData($url);
             $data = json_decode($json, true);
-    
+
+            // Check for invalid request or unknown movie
+            if ($data === null || (isset($data['success']) && $data['success'] === false)) {
+                return null;
+            }
+
             $movie = new Movie(
                 $data['id'],
                 $data['original_title'],
@@ -59,6 +64,11 @@ class MovieService
         $json = $this->fetchData($url);
         $data = json_decode($json, true);
 
+        // Check for invalid request
+        if ($data === null || (isset($data['success']) && $data['success'] === false)) {
+            return null;
+        }
+
         $genres = [];
         foreach ($data['genres'] as $item) {
             $genres[] = new Genre(
@@ -84,6 +94,11 @@ class MovieService
 
         $json = $this->fetchData($url);
         $data = json_decode($json, true);
+
+        // Check for invalid request or unknown genre
+        if ($data === null || (isset($data['success']) && $data['success'] === false)) {
+            return null;
+        }
         
         foreach ($data['genres'] as $item) {
             $genres[] = new Genre(
@@ -94,13 +109,17 @@ class MovieService
 
         $genre = current(array_filter($genres, fn($item) => (string)($item->id) === (string)$genreId));
         
-        $genre->movies = $this->getGenreById($genreId);
-
-        return $genre;
+        if ($genre === false) {
+            return null;
+        }
+        else {
+            $genre->movies = $this->getGenreById($genreId);
+            return $genre;
+        }
     }
 
 
-    public function getGenreById($genreId)
+    private function getGenreById($genreId)
     {
         $url = $this->apiUrl . 'discover/movie?with_genres=' . $genreId;
 
@@ -128,7 +147,7 @@ class MovieService
         return $movieList;
     }
 
-    public function fetchData($url) {
+    private function fetchData($url) {
         $requestedUrl = $url . '&api_key=' . $this->apiKey;
         
         $ch = curl_init();

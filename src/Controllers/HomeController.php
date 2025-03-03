@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function genre()
     {
-        $genreId = $_GET['genreId'];
+        $genreId = $_GET['id'];
         
         if($genreId == null) {
             $this->render('404');
@@ -32,7 +32,7 @@ class HomeController extends Controller
         else {
             $genre = $this->service->getSingleGenre($genreId);
             if($genre === null) {
-                $this->render('404');
+                $this->render('genre', ['genre' => null]);
             }
             else {
                 $this->render('genre', ['genre' => $genre]);
@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function description()
     {
-        $movieId = $_GET['movieId'];
+        $movieId = $_GET['id'];
         
         if($movieId == null) {
             $this->render('404');
@@ -50,7 +50,7 @@ class HomeController extends Controller
         else {
             $movie = $this->service->getMovieById($movieId);
             if($movie === null) {
-                $this->render('404');
+                $this->render('description', ['movie' => null]);
             }
             else {
                 $this->render('description', ['movie' => $movie]);

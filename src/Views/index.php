@@ -4,7 +4,7 @@
         <div class="row">
             <?php foreach($genres as $genre) : ?>
                 <div class="col-4">
-                    <p><h3><?= $genre->name ?>&nbsp;&nbsp;<a href="/genre?genreId=<?= $genre->id ?>" class="btn btn-info">Enter the genre</a></h3>
+                    <p><h3><?= $genre->name ?>&nbsp;&nbsp;<a href="/genre?id=<?= $genre->id ?>" class="btn btn-info">Enter the genre</a></h3>
                     <br><b>Total amount of movies:</b> <?= $genre->movies->totalResults ?> movies</p>
                     <table class="table">
                         <thead>
@@ -21,7 +21,7 @@
                                     <tr>
                                         <td><img src="https://image.tmdb.org/t/p/w92/<?= $movie->poster_path ?>" width/></td>
                                         <td><?= $movie->original_title ?></td>
-                                        <td><a href="/description?movieId=<?= $movie->id ?>" class="btn btn-secondary">Description</a></td>
+                                        <td><a href="/description?id=<?= $movie->id ?>" class="btn btn-secondary">Description</a></td>
                                     </tr>
                             <?php endforeach; ?>
                         </tbody>
