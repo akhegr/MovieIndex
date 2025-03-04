@@ -14,7 +14,7 @@ Download and execute XAMPP for Windows.
 1. Open XAMPP Control Panel, and ensure Apache is started
 2. Copy the GitHub project to your XAMPP folder, eg. `C:\xampp\htdocs`
 3. Open your command promp by running `cmd`
-4. Navigate to the folder with the project, eg. `cd C:\xampp\htdocs\MovieIndex`
+4. Navigate to the folder with the project, eg. `cd C:\xampp\htdocs\MovieIndex\public`
 5. Host the project on a wanted port by following command: `php -S localhost:1234`
 
 ### Copy it to a running Apache server
