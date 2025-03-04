@@ -8,6 +8,8 @@ class Controller
     {
         extract($data);
 
+        include "Views/Partials/header.php"; 
         include "Views/$view.php";
+        include "Views/Partials/footer.php"; 
     }
 }
