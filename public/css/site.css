@@ -37,6 +37,10 @@ body {
   padding-top: 10px;
 }
 
+.center {
+  vertical-align: middle;
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;

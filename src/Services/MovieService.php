@@ -74,7 +74,7 @@ class MovieService
             $genres[] = new Genre(
                 $item['id'],
                 $item['name'],
-                $this->getGenreById($item['id']));
+                $this->getMoviesByGenreId($item['id'], 1));
         }
 
         return $genres;
@@ -113,15 +113,15 @@ class MovieService
             return null;
         }
         else {
-            $genre->movies = $this->getGenreById($genreId);
+            $genre->movies = $this->getMoviesByGenreId($genreId, 1);
             return $genre;
         }
     }
 
 
-    private function getGenreById($genreId)
+    public function getMoviesByGenreId($genreId, $page)
     {
-        $url = $this->apiUrl . 'discover/movie?with_genres=' . $genreId;
+        $url = $this->apiUrl . 'discover/movie?with_genres=' . $genreId . '&page=' . $page;
 
         $json = $this->fetchData($url);
         $data = json_decode($json, true);
