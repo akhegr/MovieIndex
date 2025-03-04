@@ -1,6 +1,7 @@
 
 <?php
     use App\Controllers\HomeController;
+    use App\Controllers\ApiController;
     use App\Router;
 
     $router = new Router();
@@ -10,6 +11,7 @@
     $router->get('/index', HomeController::class, 'index');
     $router->get('/genre', HomeController::class, 'genre');
     $router->get('/description', HomeController::class, 'description');
+    $router->get('/api/genre', ApiController::class, 'genre');
 
     $router->dispatch();
 ?>

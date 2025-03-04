@@ -12,4 +12,8 @@ class Controller
         include "Views/$view.php";
         include "Views/Partials/footer.php"; 
     }
+
+    protected function api($data) {
+        echo json_encode($data);
+    }
 }
