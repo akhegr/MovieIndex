@@ -40,6 +40,24 @@ class HomeController extends Controller
         }
     }
 
+    public function genre2()
+    {
+        $genreId = $_GET['id'];
+        
+        if($genreId == null) {
+            $this->render('404');
+        }
+        else {
+            $genre = $this->service->getSingleGenre($genreId);
+            if($genre === null) {
+                $this->render('genre2', ['genre' => null]);
+            }
+            else {
+                $this->render('genre2', ['genre' => $genre]);
+            }
+        }
+    }
+
     public function description()
     {
         $movieId = $_GET['id'];

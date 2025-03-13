@@ -19,7 +19,7 @@
         <?php
             foreach ($genre->movies->results as $movie) : ?>
                 <tr>
-                    <td class="center"><img src="https://image.tmdb.org/t/p/w92/<?= $movie->poster_path ?>" width/></td>
+                    <td class="center"><img src="https://image.tmdb.org/t/p/w92/<?= $movie->poster_path ?>"/></td>
                     <td class="center"><?= $movie->original_title ?></td>
                     <td class="center"><a href="/description?id=<?= $movie->id ?>" class="btn btn-secondary">Description</a></td>
                 </tr>
